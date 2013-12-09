@@ -4,3 +4,5 @@
   tasks:
   - name: install apache2
     apt: name=apache2 state=latest
+  - name: install git
+    apt: name=git state=latest	
