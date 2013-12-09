@@ -7,6 +7,5 @@
   - name: install git
     apt: name=git state=latest
   - name: clone git repo
-    git: repo=git://github.com/trondhindenes/AnsibleTest.git
-	     dest=/home/checkout/AnsibleTest
+    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/home/checkout/AnsibleTest
 
