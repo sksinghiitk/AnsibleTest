@@ -7,8 +7,8 @@
   - name: install git
     apt: name=git state=latest
   - name: clone git repo
-    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/home/checkout/AnsibleTest
+    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/ansibletest
   - name: copy index file
-    copy: src=/home/checkout/AnsibleTest/WebServerContent/index.html dest=/var/www/index.html
+    copy: src=/var/projects/ansibletest/WebServerContent/index.html dest=/var/www/index.html
 
 
