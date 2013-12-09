@@ -10,7 +10,7 @@
   - name: clone git repo
     git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/ansibletest
   - name: copy index file
-    copy: src=/var/projects/ansibletest/webservercontent/index.html dest=/var/www/index.html
+    command: cp /var/projects/ansibletest/webservercontent/index.html /var/www/index.html
 
 
 
