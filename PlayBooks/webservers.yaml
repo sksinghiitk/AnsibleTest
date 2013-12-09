@@ -11,8 +11,10 @@
     - restart apache
   - name: ensure apache is running
     service: name=apache2 state=started
-- git: repo=git://github.com/trondhindenes/AnsibleTest.git
-       dest=/home/checkout/AnsibleTest
+  - name: update git repo
+		git: repo=git://github.com/trondhindenes/AnsibleTest.git
+        dest=/home/checkout/AnsibleTest
+		version=HEAD
 	
   handlers:
     - name: restart apache
