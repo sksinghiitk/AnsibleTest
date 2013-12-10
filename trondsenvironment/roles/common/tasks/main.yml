@@ -7,3 +7,6 @@
     tags: ntp
     notify:
     - restart ntp
+
+  - name: install git on control hosts
+    apt: name=git state=latest
