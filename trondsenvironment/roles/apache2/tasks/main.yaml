@@ -41,6 +41,11 @@
     - name: Apache | Enable some required modules
       action: command a2enmod rewrite vhost_alias expires
       tags: common
+      creates:
+        /etc/apache2/mods-enabled/rewrite.load
+        /etc/apache2/mods-enabled/vhost_alias.load
+        /etc/apache2/mods-enabled/expires.load
+
 
     - name: Apache | Disable the default site
       action: command a2dissite default
