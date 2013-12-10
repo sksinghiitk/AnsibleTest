@@ -1,0 +1,7 @@
+---
+  - name: install git on control hosts
+    apt: name=git state=latest
+  - name: install ntp server
+    apt: name=ntp state=latest
+  - name: clone git repo
+    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/ansibletest
