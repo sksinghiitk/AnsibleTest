@@ -14,20 +14,30 @@
       mysql_user: name=wordpress password=$wordpress_mysql_user_passwd priv=wordpress.*:ALL state=present
       tags: wp_mysql
 
-    - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
+    - name: Clone wordpress
+      subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
+      tags: wordpress
       register: gitclonewordpressresult
       ignore_errors: True
       notify: 
       - restart apache2
 
-    - name: Empty wordpress directory
+    #- name: Clone Wordpress from git
+    #  git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
+    #  register: gitclonewordpressresult
+    #  ignore_errors: True
+    # notify: 
+    # - restart apache2
+
+    - name: Empty wordpress target directory if clone failed
       command: rm -rf /var/www/wordpress
       when: gitclonewordpressresult|failed
 
-    - name: Clone Wordpress from git (retry)
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
-      when: gitclonewordpressresult|failed
+    - name: Clone wordpress (retry)
+      subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
+      tags: wordpress
+      register: gitclonewordpressresult
+      ignore_errors: True
       notify: 
       - restart apache2
 
