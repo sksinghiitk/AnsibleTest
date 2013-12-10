@@ -17,13 +17,13 @@
     s3_backup_folder: digitalocean-wpmu
 
   tasks:
-    - name: Update APT package cache
-      action: apt update_cache=yes
-      tags: common
+    #- name: Update APT package cache
+    #  action: apt update_cache=yes
+    #  tags: common
 
-    - name: Run apt-get upgrade
-      action: apt upgrade=dist
-      tags: common
+    #- name: Run apt-get upgrade
+    #  action: apt upgrade=dist
+    #  tags: common
 
     - name: Install fail2ban
       action: apt pkg=fail2ban state=installed
@@ -176,6 +176,10 @@
 
     - name: Empty wordpress directory
       command: rm -rf /var/www/wordpress
+      when: gitclonewordpressresult|failed
+	  
+     - name: Clone Wordpress from git (retry)
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
       when: gitclonewordpressresult|failed
   
     - name: copy wordpress config file
