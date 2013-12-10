@@ -69,7 +69,7 @@
 
     - name: Test wordpress install result
       action: fail
-      when: "'wordpress' not in {{ webpage.content }}"
+      when: "WordPress not in {{ webpage.content }}"
       tags: wp_test
       #"{{ cmdb_status }} != 'to-be-staged'"
 
