@@ -68,9 +68,6 @@
       tags: wp_test
       register: wptestoutput
 
-  handlers:
-  - include: handlers/handlers.yml
-
 
 
 
