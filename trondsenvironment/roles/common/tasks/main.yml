@@ -1,12 +1,13 @@
-  - name: install ntp
+  - name: common | install ntp
     apt: name=ntp state=latest
     tags: ntp
 
-  - name: set NTP config
+  - name: common | set NTP config
     template: src=ntp.conf.j2 dest=/etc/ntp.conf
     tags: ntp
     notify:
     - restart ntp
 
-  - name: install git on control hosts
+  - name: common | install git
     apt: name=git state=latest
+    tags: git

@@ -13,7 +13,7 @@
   roles:
     - controlnode
 
-- name: Install mysql, apache, wordpress on worpress node(s)
+- name: Install mysql apache wordpress on wordpress node(s)
   hosts: wordpress
   user: root
 
