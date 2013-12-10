@@ -36,7 +36,7 @@
       tags: common
 
     - name: Apache | Enable our new site
-      action: command a2ensite wordpress
+      action: command a2ensite wordpress creates=/etc/apache2/sites-enabled/wordpress
       tags: common
 
     - name: copy wordpress config file
