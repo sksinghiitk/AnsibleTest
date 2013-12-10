@@ -23,7 +23,7 @@
     #  - restart apache2
 
     - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version=$wordpress_version
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }}
       register: gitclonewordpressresult
       ignore_errors: True
       notify: 
@@ -36,7 +36,7 @@
       tags: wp_clone
 
     - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version=$wordpress_version
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }}
       when: gitclonewordpressresult|failed
       notify: 
       - restart apache2
