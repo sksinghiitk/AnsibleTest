@@ -5,6 +5,9 @@
         - mysql-server
         - mysql-client
 
+    - name: Ensyre MySQL is running
+      action: service name=mysql state=started
+
     - name: MySQL | Configuration file, my.cnf
       action: template src=etc-mysql-my-cnf.j2 dest=/etc/mysql/my.cnf
       tags: common
