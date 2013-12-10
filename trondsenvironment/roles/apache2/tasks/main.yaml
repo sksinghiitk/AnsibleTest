@@ -49,15 +49,23 @@
     - name: Apache | Enable some required modules (rewrite)
       action: command a2enmod rewrite creates=/etc/apache2/mods-enabled/rewrite.load
       tags: apache2
+      notify: 
+      - restart apache2
 
     - name: Apache | Enable some required modules (vhost_alias)
       action: command a2enmod vhost_alias creates=/etc/apache2/mods-enabled/vhost_alias.load
       tags: apache2
+      notify: 
+      - restart apache2
 
     - name: Apache | Enable some required modules (expires)
       action: command a2enmod expires creates=/etc/apache2/mods-enabled/expires.load
       tags: apache2
+      notify: 
+      - restart apache2
 
     - name: Apache | Disable the default site
       action: command a2dissite default removes=/etc/apache2/sites-enabled/default
       tags: apache2
+      notify: 
+      - restart apache2
