@@ -12,6 +12,7 @@
 
   roles:
     - controlnode
+    - dumpvars
 
 - name: Install mysql apache wordpress on wordpress node(s)
   hosts: wordpress
@@ -21,6 +22,7 @@
     - mysql
     - apache2
     - wordpress
+    - dumpvars
 
 
 
