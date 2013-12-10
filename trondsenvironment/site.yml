@@ -4,6 +4,7 @@
   user: root
 
   roles:
+    - common
     - controlnode
 
 #- name: Install Wordpress, MySQL, Nginx, and PHP-FPM
