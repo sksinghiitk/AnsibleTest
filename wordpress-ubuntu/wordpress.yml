@@ -177,7 +177,7 @@
     - name: Empty wordpress directory
       command: rm -rf /var/www/wordpress
       when: gitclonewordpressresult|failed
-	  
+
      - name: Clone Wordpress from git (retry)
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
       when: gitclonewordpressresult|failed
