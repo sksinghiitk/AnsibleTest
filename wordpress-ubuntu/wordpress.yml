@@ -163,9 +163,12 @@
     ##
     # Wordpress
     #
-    - name: Wordpress
-      subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
-      tags: wordpress
+    #- name: Wordpress
+    #  subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
+    #  tags: wordpress
+    
+    -name: Clone Wordpress from git
+     git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
   
     - name: copy wordpress config file
       action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
