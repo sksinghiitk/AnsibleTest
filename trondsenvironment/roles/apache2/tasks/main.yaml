@@ -58,8 +58,6 @@
       action: command a2enmod expires creates=/etc/apache2/mods-enabled/expires.load
       tags: apache2
 
-
-
     - name: Apache | Disable the default site
-      action: command a2dissite default
+      action: command a2dissite default removes=/etc/apache2/sites-enabled/default
       tags: apache2
