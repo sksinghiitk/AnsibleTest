@@ -56,8 +56,7 @@
       file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
       tags: wp_plugins
 
-    - name: flush handlers
-      meta: flush_handlers
+    - meta: flush_handlers
 
 
 
