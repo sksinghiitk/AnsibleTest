@@ -5,6 +5,7 @@
 ---
 - hosts: wordpress
   sudo: yes
+  accelerate: true
 
   vars_files:
     - vars/default-settings.yml
