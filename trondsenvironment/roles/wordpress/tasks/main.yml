@@ -56,14 +56,6 @@
       file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
       tags: wp_plugins
 
-    #- name: noop
-    #  command: touch /dev/null
-    #  tags: noop
-
-    - name: Test wordpress install
-      uri: url=http://127.0.0.1/wp-admin/install.php return_content=yes
-      tags: wp_test
-      register: wptestoutput
 
 
 
