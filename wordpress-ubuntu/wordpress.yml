@@ -184,7 +184,7 @@
         - {name: font-awesome, version: tags/3.1}
         - {name: google-analytics-for-wordpress, version: tags/4.3.3}
         - {name: intensedebate, version: tags/2.9.5}
-        - {name: jetpack, version: tags/2.2.5}
+        #- {name: jetpack, version: tags/2.2.5}
         - {name: jquery-image-lazy-loading, version: tags/0.20}
         - {name: link-manager, version: trunk}
         - {name: mailchimp, version: tags/1.2.14}
@@ -216,5 +216,6 @@
     - name: noop
       command: touch /dev/null
       tags: noop
+
     - name: copy wordpress config file
       action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
