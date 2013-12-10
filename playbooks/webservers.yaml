@@ -16,4 +16,4 @@
   - name: install apache2
     apt: name=apache2 state=latest
   - name: copy index file
-    copy: src=/var/projects/AnsibleTest/webservercontent/index.html dest=/var/www/index.html
+    copy: src=/var/projects/ansibletest/webservercontent/index.html dest=/var/www/index.html
