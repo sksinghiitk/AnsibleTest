@@ -4,7 +4,7 @@
   with_items:
    - mysql-server
 #   - MySQL-python
-#   - libselinux-python
+   - libselinux-python
 #   - libsemanage-python
 
 - name: Configure SELinux to start mysql on any port
