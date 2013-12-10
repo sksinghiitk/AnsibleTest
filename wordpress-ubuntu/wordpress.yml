@@ -174,7 +174,7 @@
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
       register: gitclonewordpressresult
       ignore_errors: True
-	  
+
     - name: Empty wordpress directory
       command: rm -rf /var/www/wordpress
       when: gitclonewordpressresult|failed
