@@ -1,3 +1,40 @@
+    - name: Apache | Configuration file for our site
+      action: template src=etc-apache2-sites-available-wordpress.j2 dest=/etc/apache2/sites-available/wordpress
+      tags: common
 
+    - name: Apache | Enable our new site
+      action: command a2ensite wordpress
+      tags: common
+
+##
+    # Wordpress
+    #
+    #- name: Wordpress
+    #  subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
+    #  tags: wordpress
+
+    - name: Clone Wordpress from git
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
+      register: gitclonewordpressresult
+      ignore_errors: True
+
+    - name: Empty wordpress directory
+      command: rm -rf /var/www/wordpress
+      when: gitclonewordpressresult|failed
+
+    - name: Clone Wordpress from git (retry)
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
+      when: gitclonewordpressresult|failed
+
+    - name: copy wordpress config file
+      action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
+
+    - name: chown wp
+      file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
+      tags: wp_plugins
+
+    - name: noop
+      command: touch /dev/null
+      tags: noop
 
 
