@@ -64,13 +64,7 @@
 
     - name: Test wordpress install
       uri: url=http://127.0.0.1/wp-admin/install.php return_content=yes
-      register: webpage
-      ignore_errors: True
       tags: wp_test
-
-    - name: FailedTest
-      fail: msg="Dude"
-      when: webpage|failed
 
 
 
