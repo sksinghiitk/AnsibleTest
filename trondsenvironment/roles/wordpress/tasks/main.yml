@@ -68,7 +68,7 @@
 
     - name: Test wordpress install result
       action: fail
-      when: 'wordpress' not in "{{ webpage.content }}"
+      when: "wordpress" not in "{{ webpage.content }}"
 
 
 
