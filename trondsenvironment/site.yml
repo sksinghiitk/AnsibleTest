@@ -6,7 +6,7 @@
   roles:
     - common
   handlers:
-    - include: handlers/handlers.yml
+#    - include: handlers/handlers.yml
 
 - name: Install control node stuff on control node(s)
   hosts: control
