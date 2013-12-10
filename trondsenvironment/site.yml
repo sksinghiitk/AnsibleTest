@@ -24,7 +24,7 @@
     - wordpress
     - dumpvars
 
-- include: handlers/globalhandlers.yml
+
 
 
 
