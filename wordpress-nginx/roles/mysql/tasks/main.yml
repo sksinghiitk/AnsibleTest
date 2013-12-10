@@ -5,6 +5,7 @@
    - mysql-server
 #   - MySQL-python
    - libselinux1
+   - python-selinux
 #   - libsemanage-python
 
 - name: Configure SELinux to start mysql on any port
