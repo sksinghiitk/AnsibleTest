@@ -24,7 +24,6 @@
     - mysql
     - apache2
     - wordpress
-    - wordpress_sitetest
     - dumpvars
   handlers:
     - include: handlers/handlers.yml
