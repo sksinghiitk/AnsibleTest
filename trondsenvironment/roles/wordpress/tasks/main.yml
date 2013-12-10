@@ -48,8 +48,8 @@
       file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
       tags: wp_plugins
 
-    - name: noop
-      command: touch /dev/null
-      tags: noop
+    #- name: noop
+    #  command: touch /dev/null
+    #  tags: noop
 
 
