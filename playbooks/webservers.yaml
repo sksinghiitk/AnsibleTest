@@ -7,8 +7,6 @@
     apt: name=git state=latest
   - name: clone git repo
     git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/ansibletest
-  - name: install git
-    apt: name=git state=latest
 - hosts: webservers
   remote_user: root
   sudo: yes
