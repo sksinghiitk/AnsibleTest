@@ -1,11 +1,20 @@
 ---
-- name: Install control stuff on control node
-  hosts: control
+- name: Install common config on all nodes
+  hosts: all
   user: root
 
   roles:
     - common
-    - controlnode
+
+- name: Install control node stuff on control node(s)
+  hosts: control
+  user: root
+
+  roles:
+    - control
+
+
+
 
 #- name: Install Wordpress, MySQL, Nginx, and PHP-FPM
 #  hosts: njetwordpress-server
