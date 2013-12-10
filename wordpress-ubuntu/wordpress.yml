@@ -216,7 +216,9 @@
     - name: noop
       command: touch /dev/null
       tags: noop
-
+		  
+    - name: copy wordpress config file
+      action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
   ##
   # Restart services
   #
