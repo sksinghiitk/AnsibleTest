@@ -63,12 +63,14 @@
     #  tags: noop
 
     - name: Test wordpress install
-      uri: url=http://www.example.com return_content=yes
+      uri: url=http://127.0.0.1/wp-admin/install.php return_content=yes
       register: webpage
+      tags: wp_test
 
     - name: Test wordpress install result
       action: fail
       when: "wordpress not in {{ webpage.content }}"
+      tags: wp_test
       #"{{ cmdb_status }} != 'to-be-staged'"
 
 
