@@ -179,7 +179,7 @@
     - name: Clone Wordpress from git (retry)
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress
       when: gitclonewordpressresult|failed
-  
+
     - name: copy wordpress config file
       action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
 
@@ -191,4 +191,4 @@
       command: touch /dev/null
       tags: noop
 
-    
+

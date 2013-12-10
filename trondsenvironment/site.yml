@@ -2,17 +2,17 @@
 - name: Install control stuff on control node
   hosts: control
   user: root
-  
+
   roles:
     - controlnode
 
-- name: Install Wordpress, MySQL, Nginx, and PHP-FPM
-  hosts: njetwordpress-server
-  user: root
+#- name: Install Wordpress, MySQL, Nginx, and PHP-FPM
+#  hosts: njetwordpress-server
+#  user: root
 
-  roles:
-    - common
-    - mysql 
-    - nginx
-    - php-fpm
-    - wordpress
+#  roles:
+#    - common
+#    - mysql 
+#    - nginx
+#    - php-fpm
+#    - wordpress
