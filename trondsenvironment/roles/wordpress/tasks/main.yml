@@ -57,7 +57,7 @@
       tags: wp_plugins
 
     - name: flush handlers
-      action: meta flush_handlers
+      meta: flush_handlers
 
 
 
