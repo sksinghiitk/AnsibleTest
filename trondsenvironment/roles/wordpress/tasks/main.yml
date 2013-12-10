@@ -66,6 +66,7 @@
     - name: Test wordpress install
       uri: url=http://127.0.0.1/wp-admin/install.php return_content=yes
       tags: wp_test
+      register: wptestoutput
 
 
 
