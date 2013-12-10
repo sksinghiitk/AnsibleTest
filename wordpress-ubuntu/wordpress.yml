@@ -90,8 +90,8 @@
         - ack
         - mosh
 
-    - name: my dotfiles, will have to rake install later
-      git: repo=git://github.com/ayn/dotfiles.git dest=/var/projects/.dotfiles
+    #- name: my dotfiles, will have to rake install later
+    #  git: repo=git://github.com/ayn/dotfiles.git dest=/var/projects/.dotfiles
 
     ##
     # Message of the day explaining server is under control of Ansible.
