@@ -27,7 +27,7 @@
       when: gitclonewordpressresult|failed
 
     - name: copy wordpress config file
-      action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
+      action: template src=wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
 
     - name: chown wp
       file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
