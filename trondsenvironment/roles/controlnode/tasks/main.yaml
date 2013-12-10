@@ -5,11 +5,12 @@
   - name: install ntp server
     apt: name=ntp state=latest
     tags: ntp
-  - name: clone git repo
-    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/AnsibleTest
 
   - name: set NTP config
     template: src=ntp.conf.j2 dest=/etc/ntp.conf
     tags: ntp
     notify:
-    - restart ntpd
+    - restart ntp
+
+  - name: clone git repo
+    git: repo=git://github.com/trondhindenes/AnsibleTest.git dest=/var/projects/AnsibleTest
