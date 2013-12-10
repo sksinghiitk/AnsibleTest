@@ -25,6 +25,8 @@
     - apache2
     - wordpress
     - dumpvars
+  handlers:
+    - include: handlers/handlers.yml
 
 
 
