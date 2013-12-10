@@ -166,6 +166,9 @@
     - name: Wordpress
       subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
       tags: wordpress
+	  
+    - name: copy wordpress config file
+      action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
 
     - name: chown wp
       file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
@@ -175,5 +178,4 @@
       command: touch /dev/null
       tags: noop
 
-    - name: copy wordpress config file
-      action: template src=templates/wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
+    
