@@ -24,7 +24,6 @@
       register: gitclonewordpressresult
       ignore_errors: True
       notify: 
-      - debug things
       - restart apache2
       tags: wp_clone
 
@@ -37,7 +36,6 @@
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
       when: gitclonewordpressresult|failed
       notify: 
-      - debug things
       - restart apache2
       tags: wp_clone
 

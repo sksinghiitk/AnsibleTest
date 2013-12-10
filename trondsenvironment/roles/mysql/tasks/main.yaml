@@ -5,7 +5,7 @@
         - mysql-server
         - mysql-client
 
-    - name: Ensyre MySQL is running
+    - name: Ensure MySQL server is running
       action: service name=mysql state=started
 
     - name: MySQL | Configuration file, my.cnf
