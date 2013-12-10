@@ -5,6 +5,7 @@ aws_access_key_id: foobarbaz
 aws_secret_access_key: foobarbaz/foobarbaz
 mysql_root_password: 'foobarbaz'
 wordpress_version: 3.7-branch
+server_hostname: ansiblenode
 
 
 ubuntu_release: 'precise'
