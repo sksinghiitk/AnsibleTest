@@ -62,4 +62,11 @@
     #  command: touch /dev/null
     #  tags: noop
 
+    - name: Test wordpress install(1)
+      uri: url=http://www.example.com return_content=yes
+      register: webpage
+      action: fail
+        when: 'wordpress' not in "{{ webpage.content }}"
+
+
 
