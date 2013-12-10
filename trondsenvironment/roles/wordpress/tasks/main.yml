@@ -67,10 +67,10 @@
       register: webpage
       tags: wp_test
 
-    - name: Test wordpress install result
-      action: fail
-      when: "WordPress not in {{ webpage.content }}"
-      tags: wp_test
+    #- name: Test wordpress install result
+    #  action: fail
+    #  when: "WordPress not in {{ webpage.content }}"
+    #  tags: wp_test
       #"{{ cmdb_status }} != 'to-be-staged'"
 
 
