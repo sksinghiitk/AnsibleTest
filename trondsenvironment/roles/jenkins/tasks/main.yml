@@ -14,6 +14,6 @@
         - jenkins_apt
 
     - name: Add Jenkins Repo;
-      apt_repository: repo='http://pkg.jenkins-ci.org/debian binary/' state=present
+      lineinfile: dest=/etc/apt/sources.list.d/jenkins.list line="deb http://pkg.jenkins-ci.org/debian binary/" create=yes
       tags:
         - jenkins_apt
