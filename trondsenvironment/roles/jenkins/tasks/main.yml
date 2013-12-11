@@ -17,3 +17,6 @@
       lineinfile: dest=/etc/apt/sources.list.d/jenkins.list line="deb http://pkg.jenkins-ci.org/debian binary/" create=yes
       tags:
         - jenkins_apt
+
+    - name: Install jenkins apt;
+      apt: pkg=jenkins update_cache=yes
