@@ -2,6 +2,7 @@
     # - name: Download Jenkins key;
     #   get_url: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key dest=/tmp/jenkins-ci.org.key
     #   register: jenkinskey 
+    # This is just a comment to trigger build
     - name: Add required pycurl package
       apt: pkg=python-pycurl state=present
       tags:
