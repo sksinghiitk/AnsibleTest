@@ -27,12 +27,12 @@
   handlers:
     - include: handlers/handlers.yml
 
-- name: Install jenkins
-  hosts: jenkins
-  user: root
+# - name: Install jenkins
+#   hosts: jenkins
+#   user: root
 
-  roles:
-    - jenkins
+#   roles:
+#     - jenkins
 
 
 
