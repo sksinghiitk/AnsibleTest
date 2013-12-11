@@ -1,1 +1,1 @@
-ROle-based playbook for installing Wordpress on a single-node Ubuntu server
+Role-based playbook for installing Wordpress on a single-node Ubuntu server
