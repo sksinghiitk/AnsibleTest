@@ -20,3 +20,5 @@
 
     - name: Install jenkins apt;
       apt: pkg=jenkins update_cache=yes
+      tags:
+        - jenkins_apt
