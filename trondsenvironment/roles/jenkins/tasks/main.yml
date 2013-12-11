@@ -1,0 +1,14 @@
+#Installs Jenkins CI
+    # - name: Download Jenkins key;
+    #   get_url: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key dest=/tmp/jenkins-ci.org.key
+    #   register: jenkinskey 
+
+    - name: Add Jenkins key
+      apt_key: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key state=present
+      tags:
+        - jenkins_apt
+
+    - name: Add Jenkins Repo;
+      apt_repository: repo='http://pkg.jenkins-ci.org/debian binary/' state=present
+      tags:
+        - jenkins_apt
