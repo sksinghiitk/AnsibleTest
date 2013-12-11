@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: Install NTP
-    apt: name= {{ item }} state=latest
+    action: apt pkg={{ item }} state=installed
     with_items:
       - ntp
       - git
