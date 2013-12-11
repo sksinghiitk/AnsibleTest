@@ -4,11 +4,11 @@
   user: root
 
   tasks:
-  - name: ensure apt cache is up to date
+  - name: ensure apt cache is up to date (hardcoded task)
     action: apt update_cache=yes
 
-#  roles:
-#    - common
+  roles:
+    - common
 #  handlers:
 #    - include: handlers/handlers.yml
 
