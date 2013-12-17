@@ -1,6 +1,6 @@
 $Script:ErroractionPreference = "Stop"
 $webpiurl = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
-Start-BitsTransfer -Source $webpiurl -Destination $env:temp
+Invoke-WebRequest -Uri $webpiurl -outfile "$env:temp/WebPlatformInstaller_amd64_en-US.msi"
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $env:temp\WebPlatformInstaller_amd64_en-US.msi /qn" -Wait
 cd "$env:programfiles\microsoft\web platform installer"
 #./WebPICMD.exe /Install /Application:WordPress /MySQLPassword:Password123 /AcceptEULA
