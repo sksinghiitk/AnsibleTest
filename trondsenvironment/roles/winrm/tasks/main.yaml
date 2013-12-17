@@ -1,6 +1,6 @@
     - name: copy powershell file
       action: template src=script.ps1.j2 dest="/opt/tclwinrunner/script.ps1"
-      tags: wp_apache_config
+      tags: winrm
 
     - name: Do some winrm stuff
       action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/script.ps1" psusername="administrator" pspassword="MyPassword123"
