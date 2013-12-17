@@ -3,5 +3,5 @@
       tags: wordpress_windows
 
     - name: Connect to node and run script
-      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123"
+      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123" operationtimeout=500
       tags: wordpress_windows
