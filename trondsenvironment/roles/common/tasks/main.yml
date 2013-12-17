@@ -1,5 +1,5 @@
-#  - name: ensure apt cache is up to date
-#    action: apt update_cache=yes
+  - name: ensure apt cache is up to date
+    action: apt update_cache=yes
 
   - name: install ntp
     apt: name=ntp state=latest
