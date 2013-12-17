@@ -1,7 +1,7 @@
-    - name: copy powershell file
+    - name: copy powershell file to winrm client node
       action: template src=wordpressinstaller.ps1.j2 dest="/opt/tclwinrunner/wordpressinstaller.ps1"
       tags: wordpress_windows
 
-    - name: Connect to node and run script
-      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123" operationtimeout=500
+    - name: Install wordpress
+      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123" operationtimeout=1000
       tags: wordpress_windows
