@@ -27,12 +27,12 @@
   handlers:
     - include: handlers/handlers.yml
 
-- name: Do some WinRM stuff
+- name: Install wordpress_windows
   hosts: wordpress
   user: root
 
   roles:
-    - winrm
+    - wordpress_windows
 
 # - name: Install jenkins
 #   hosts: jenkins
