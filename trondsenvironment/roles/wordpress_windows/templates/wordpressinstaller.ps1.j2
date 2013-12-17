@@ -1,0 +1,21 @@
+$webpiurl = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
+Start-BitsTransfer -Source $webpiurl -Destination $env:temp
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $env:temp\WebPlatformInstaller_amd64_en-US.msi /qn" -Wait
+cd "$env:programfiles\microsoft\web platform installer"
+#./WebPICMD.exe /Install /Application:WordPress /MySQLPassword:Password123 /AcceptEULA
+
+$ParamFile = "AppPath[@]Default Web Site/wordpress
+DbServer[@]localhost
+DbName[@]wordpress
+DbUsername[@]wordpressuser
+DbPassword[@]Password123
+DbAdminUsername[@]root
+DbAdminPassword[@]Password123"
+
+Set-content wordpress.app -value $Paramfile
+
+Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /Application:WordPress@wordpress.app /MySQLPassword:Password123 /AcceptEULA" -wait 
+
+Write-host "AnsibleResult:Changed"
+Write-host "AnsibleDetail:Installed Wordpress"
+Write-host "AnsibleError:"
