@@ -1,3 +1,3 @@
     - name: Do some winrm stuff
-      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/script.ps1" psusername="administrator" pspassword="Co0lip1.12"
+      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/script.ps1" psusername="administrator" pspassword="MyPassword123"
       tags: winrm
