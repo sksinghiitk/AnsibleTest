@@ -18,6 +18,19 @@ Set-content wordpress.app -value $Paramfile
 
 Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /Application:WordPress@wordpress.app /MySQLPassword:Password123 /AcceptEULA /Log:$env:temp/wordpressinstall.log" -wait 
 
+#Read log:
+$logfile = get-content "$env:temp/wordpressinstall.log"
+$logfilecount = $logfile.count
+$logline = $logfile[($logfilecount-2)]
+
+if ($logline -match "SUCCESS")
+	{
+		$AnsibleDetail = "Success"
+	}
+Else
+	{
+		Write-host "AnsibleError:Error installing WOrdpress"
+	}
+
 Write-host "AnsibleResult:Changed"
-Write-host "AnsibleDetail:Installed Wordpress"
-Write-host "AnsibleError:$error"
+Write-host "AnsibleDetail:Installed Wordpress: $AnsibleDetail"
