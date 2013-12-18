@@ -3,7 +3,7 @@
   hosts: 
     - tag_Group_Wordpress
     - tag_Group_MySQL
-  user: {{ remote_user }}
+  user: "{{ remote_user }}""
   sudo: yes
   serial: 9999
 
