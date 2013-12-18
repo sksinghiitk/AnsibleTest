@@ -3,5 +3,5 @@
       tags: wp_mysql
 
     - name: Wordpress MySQL setup
-      mysql_user: name=wordpress password={{ wordpress_mysql_user_passwd }} priv=wordpress.*:ALL state=present
+      mysql_user: name=wordpress password={{ wordpress_mysql_user_passwd }} priv=wordpress.*:ALL state=present host=ip-172-31-11-148.us-west-2.compute.internal
       tags: wp_mysql
