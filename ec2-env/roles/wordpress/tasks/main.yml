@@ -11,6 +11,7 @@
     #  notify: 
     #  - restart apache2
 
+
     - name: Clone Wordpress from git
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
       register: gitclonewordpressresult
