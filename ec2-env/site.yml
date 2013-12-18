@@ -2,6 +2,7 @@
 - name: Install common config on all nodes
   hosts: tag_Name_server1
   user: ubuntu
+  sudo: yes
 
   roles:
     - common
