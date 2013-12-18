@@ -14,6 +14,10 @@
     - controlnode
     - dumpvars
 
+  tasks:
+    - name: ensure apt cache is up to date (direct task)
+      service: name=httpd state=started
+
 - name: Install mysql apache wordpress on wordpress node(s)
   hosts: wordpress
   user: root
