@@ -1,6 +1,8 @@
 ---
 - name: Install common config on all nodes
-  hosts: tag_Name_server1
+  hosts: 
+    - tag_Group_Wordpress
+    #- tag_Group_MySQL
   user: ubuntu
   sudo: yes
 
