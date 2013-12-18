@@ -2,9 +2,28 @@
 - name: Install common config on all nodes
   hosts: 
     - tag_Group_Wordpress
-    #- tag_Group_MySQL
+    - tag_Group_MySQL
   user: ubuntu
   sudo: yes
 
   roles:
     - common
+
+- name: Install MySQL
+  hosts: 
+    - tag_Group_MySQL
+  user: ubuntu
+  sudo: yes
+
+  roles:
+    - mysql
+
+- name: Install Wordpress
+  hosts: 
+    - tag_Group_Wordpress
+  user: ubuntu
+  sudo: yes
+
+  roles:
+    - apache2
+    - wordpress
