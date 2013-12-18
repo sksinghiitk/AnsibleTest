@@ -11,5 +11,7 @@
     - name: Configuration file, my.cnf
       action: template src=etc-mysql-my-cnf.j2 dest=/etc/mysql/my.cnf
       tags: common
+      notify: 
+      - restart mysql
 
     - include: mysql-secure.yml
