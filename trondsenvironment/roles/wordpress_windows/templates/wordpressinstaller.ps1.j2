@@ -16,7 +16,7 @@ DbAdminPassword[@]Password123"
 
 Set-content wordpress.app -value $Paramfile
 
-Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /Application:WordPress@wordpress.app /MySQLPassword:Password123 /AcceptEULA /Log:"$env:temp/wordpressinstall.log" -wait 
+Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /Application:WordPress@wordpress.app /MySQLPassword:Password123 /AcceptEULA /Log:$env:temp/wordpressinstall.log" -wait 
 
 Write-host "AnsibleResult:Changed"
 Write-host "AnsibleDetail:Installed Wordpress"
