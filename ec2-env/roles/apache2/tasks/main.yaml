@@ -24,6 +24,7 @@
         - vim
         - ack
         - mosh
+        - mysql-client-core-5.5
 ##
     # PHP Setup.
     #
