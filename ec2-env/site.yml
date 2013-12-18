@@ -3,8 +3,9 @@
   hosts: 
     - tag_Group_Wordpress
     - tag_Group_MySQL
-  user: ubuntu
+  user: {{ remote_user }}
   sudo: yes
+  serial: 9999
 
   roles:
     - common
