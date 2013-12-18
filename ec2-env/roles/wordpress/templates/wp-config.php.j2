@@ -5,7 +5,11 @@ define('DB_USER', 'wordpress');
 
 define('DB_PASSWORD', 'foobarbaz');
 
-define('DB_HOST', '172.31.11.161');
+{% for host in groups['tag_Group_MySQL'] %}
+            define('DB_HOST', ' {{ hostvars[host]['ec2_private_ip_address']}} ');
+{% endfor %}
+
+
 
 define('DB_CHARSET', 'utf8');
 
