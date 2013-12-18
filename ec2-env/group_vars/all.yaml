@@ -1,1 +1,2 @@
 remote_user: 'ubuntu'
+wordpress_mysql_user_passwd: foobarbaz

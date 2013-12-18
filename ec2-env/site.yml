@@ -18,6 +18,7 @@
 
   roles:
     - mysql
+    - mysql_wordpressdb
 
 - name: Install Wordpress
   hosts: 
