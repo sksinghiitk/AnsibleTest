@@ -3,5 +3,5 @@
       tags: wordpress_windows
 
     - name: Install wordpress
-      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123" operationtimeout="1000"
+      action: winrm pshostname="192.168.188.155" psscriptname="/opt/tclwinrunner/wordpressinstaller.ps1" psusername="administrator" pspassword="MyPassword123"
       tags: wordpress_windows
