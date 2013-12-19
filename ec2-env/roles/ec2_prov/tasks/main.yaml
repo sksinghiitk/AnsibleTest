@@ -8,4 +8,4 @@
     wait_timeout: 500
     count: 5
     instance_tags: '{"Group":"MySQL"}'
-    tags: wp_clone
+    tags: ec2_prov
