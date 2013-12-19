@@ -10,4 +10,4 @@
       register: ec2
 
     - name: Add Wordpress instance to Wordpress group
-      local_action: add_host hostname={{ ec2.instances[0].public_ip}} groupname=Wordpress
+      local_action: add_host hostname={{ ec2.instances[0].public_ip}} groupname=tag_Group_Wordpress
