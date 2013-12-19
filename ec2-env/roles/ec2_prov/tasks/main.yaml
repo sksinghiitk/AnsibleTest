@@ -2,7 +2,7 @@
       local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
       register: ec2
 
-    - debug: msg={{ ec2.dns_name }}
+    - debug: msg={{ ec2.public_ip }}
 
 #    - name: Add new instance to host group
 #      local_action: add_host hostname={{ item.public_ip }} groupname=tag_Group_MySQL
