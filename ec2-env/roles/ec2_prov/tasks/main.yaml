@@ -3,7 +3,7 @@
     key_name: ansible
     group: MySG
     instance_type: t1.micro
-    image: ami-a73264ce
+    image: ami-6aad335a
     wait: yes
     wait_timeout: 500
     count: 1
