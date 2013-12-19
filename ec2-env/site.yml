@@ -1,4 +1,10 @@
 ---
+- name: Provision EC2 images
+  hosts: ansible
+
+  roles:
+    - ec2_prov
+
 - name: Install common config on all nodes
   hosts: 
     - tag_Group_Wordpress
