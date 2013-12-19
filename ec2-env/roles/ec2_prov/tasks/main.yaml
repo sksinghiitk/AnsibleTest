@@ -3,10 +3,8 @@
       register: ec2
 
     - name: Save ec2 info to file
-      command: "touch ~/ec2.txt"
+      action: template src=ec2.j2 dest=/tmp/ec2.txt
 
-    - name: Save ec2 info to file(2)
-      command:  "{{ ec2 }} > ~/ec2.txt"
 
 
 #    - name: Add new instance to host group
