@@ -3,10 +3,8 @@
       register: ec2
 
     - name: Save ec2 info to file
-      action: command touch ~/ec2.txt && {{ ec2.public_ip }} > ~/ec2.txt
+      command: touch ~/ec2.txt && {{ ec2.public_ip }} > ~/ec2.txt
 
-
-    - debug: msg={{ ec2.public_ip }}
 
 #    - name: Add new instance to host group
 #      local_action: add_host hostname={{ item.public_ip }} groupname=tag_Group_MySQL
