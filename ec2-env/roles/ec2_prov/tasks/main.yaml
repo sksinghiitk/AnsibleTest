@@ -6,5 +6,6 @@
     image: ami-a73264ce
     wait: yes
     wait_timeout: 500
-    count: 5
+    count: 1
+    region: us-west-2
     instance_tags: '{"Group":"MySQL"}'
