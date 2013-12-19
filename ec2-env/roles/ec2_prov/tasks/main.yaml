@@ -1,5 +1,5 @@
     - name: Add new instance to host group    
-      local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region=us-west-2 region= us-west-2 instance_tags= '{"Group":"MySQL"}'
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region=us-west-2 region= us-west-2
       register: ec2
 
     - name: Add new instance to host group
