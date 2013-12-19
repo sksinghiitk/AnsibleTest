@@ -6,7 +6,7 @@ define('DB_USER', 'wordpress');
 define('DB_PASSWORD', 'foobarbaz');
 
 {% for host in groups['tag_Group_MySQL'] %}
-define('DB_HOST', '{{ hostvars[host]['ec2_private_ip_address']}}');
+define('DB_HOST', '{{  ec2_mysql.instances[0].private_ip }}');
 {% endfor %}
 
 
