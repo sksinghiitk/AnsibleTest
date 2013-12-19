@@ -1,7 +1,7 @@
 - local_action:
     module: ec2
     key_name: ansible
-    group: TrondGroup
+    group: MySG
     instance_type: t1.micro
     image: ami-a73264ce
     wait: yes
