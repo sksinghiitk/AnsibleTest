@@ -2,6 +2,10 @@
       local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
       register: ec2
 
+    - name: Save ec2 info to file
+      action: command touch ~/ec2.txt && {{ ec2.public_ip }} > ~/ec2.txt
+
+
     - debug: msg={{ ec2.public_ip }}
 
 #    - name: Add new instance to host group
