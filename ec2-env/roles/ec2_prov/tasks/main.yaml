@@ -1,17 +1,13 @@
-    - name: Add new instance to host group    
+    - name: Provision MySQL instance
       local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
       register: ec2
 
-    - name: Save ec2 info to file
-      action: template src=ec2.j2 dest=/tmp/ec2.txt
+    - name: Add MySQL instance to MySQL group
+      local_action: add_host hostname={{ ec2.instances[0].public_ip}} groupname=tag_Group_MySQL
 
+    - name: Provision Wordpress instance
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
+      register: ec2
 
-
-#    - name: Add new instance to host group
-#      local_action: add_host hostname={{ item.public_ip }} groupname=tag_Group_MySQL
-
-#    - name: Provision Wordpress
-#      local_action: module= ec2 key_name= root@ansible group= MySG instance_type= t1.micro image= ami-6aad335a wait= yes wait_timeout= 500 count= 1 region= us-west-2 instance_tags= '{"Group":"Wordpress"}'
-
-#    - name: Upate inventory
-#      local_action
+    - name: Add Wordpress instance to Wordpress group
+      local_action: add_host hostname={{ ec2.instances[0].public_ip}} groupname=Wordpress
