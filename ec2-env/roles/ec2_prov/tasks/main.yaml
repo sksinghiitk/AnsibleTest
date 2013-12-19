@@ -1,12 +1,12 @@
     - name: Provision MySQL instance
-      local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
       register: ec2_mysql
 
     - name: Add MySQL instance to MySQL group
       local_action: add_host hostname={{ ec2_mysql.instances[0].public_ip}} groupname=tag_Group_MySQL
 
     - name: Provision Wordpress instance
-      local_action: ec2 key_name=root@ansible  group=MySG instance_type=t1.micro image=ami-6aad335a wait=true region="us-west-2"
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
       register: ec2_wordpress
 
     - name: Add Wordpress instance to Wordpress group
