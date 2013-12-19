@@ -1,6 +1,6 @@
 - local_action:
     module: ec2
-    key_name: ansible
+    key_name: root@ansible 
     group: MySG
     instance_type: t1.micro
     image: ami-6aad335a
