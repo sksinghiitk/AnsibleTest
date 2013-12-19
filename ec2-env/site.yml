@@ -1,6 +1,7 @@
 ---
 - name: Provision EC2 images
-  hosts: ansible
+  hosts:
+    - control
 
   roles:
     - ec2_prov
