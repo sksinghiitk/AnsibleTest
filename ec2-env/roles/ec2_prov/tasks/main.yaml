@@ -3,7 +3,7 @@
       register: ec2
 
     - name: Save ec2 info to file
-      command: touch ~/ec2.txt && {{ ec2.public_ip }} > ~/ec2.txt
+      command: touch ~/ec2.txt && {{ ec2 }} > ~/ec2.txt
 
 
 #    - name: Add new instance to host group
