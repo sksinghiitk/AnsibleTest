@@ -1,12 +1,3 @@
-{{ ec2 }}
-
-
-linebrak
-
-
-
-{{ ec2.instances}}
-
-linebrak2
-
-{{ ec2.instances[0].public_ip}}
+{% for host in groups['tag_Group_MySQL'] %}
+define('DB_HOST', '{{ host }}');
+{% endfor %}
