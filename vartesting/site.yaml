@@ -1,0 +1,14 @@
+---
+- name: First noderole
+  hosts: 
+    - all
+
+  roles:
+    - control
+
+- name: Second noderole
+  hosts: 
+    - node
+
+  roles:
+    - node

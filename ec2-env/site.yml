@@ -20,7 +20,7 @@
 - name: Install MySQL
   hosts: 
     - tag_Group_MySQL
-  user: ubuntu
+  user: "{{ remote_user }}"
   sudo: yes
 
   roles:
@@ -30,7 +30,7 @@
 - name: Install Wordpress
   hosts: 
     - tag_Group_Wordpress
-  user: ubuntu
+  user: "{{ remote_user }}"
   sudo: yes
 
   roles:

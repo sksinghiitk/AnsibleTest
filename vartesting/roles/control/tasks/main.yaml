@@ -1,0 +1,7 @@
+---
+- name: Do some stuff
+  service: name=ntp state=restarted
+
+- debug: msg="my hostname is {{ ansible_hostname }}"
+- debug: msg="my ip address is {{ ansible_default_ipv4.address }}"
+- debug: msg="my var is {{ myfirstvar }}"
