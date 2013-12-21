@@ -3,26 +3,60 @@
       #Only valid on the host where it is registered
       register: ec2_mysql
 
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_mysql
+
     - name: Add MySQL instance to MySQL group
       local_action: add_host hostname={{ ec2_mysql.instances[0].public_ip}} groupname=tag_Group_MySQL
+
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_mysql
 
     - name: Provision Wordpress instance
       local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
       #Only valid on the host where it is registered
       register: ec2_wordpress
 
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_wordpress
+
     - name: Add Wordpress instance to Wordpress group
       local_action: add_host hostname={{ ec2_wordpress.instances[0].public_ip}} groupname=tag_Group_Wordpress
 
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_wordpress
+
     - name: Pause for a little while
       pause: minutes=1
+
+      tags:
+        - ec2
+        - ec2_prov
+
 
     - name: Refresh EC2 inventory
       action: ec2_facts
       register: ec2factsgathered
 
+      tags:
+        - ec2
+        - ec2_prov
+
+
     - name: view the stuff
       action: debug msg="{{ ec2factsgathered }}"
+
+      tags:
+        - ec2
+        - ec2_prov
 
 
 #    - name: Test template
