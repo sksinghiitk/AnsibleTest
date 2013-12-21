@@ -38,7 +38,7 @@
         - ec2_prov_wordpress
 
     - name: Pause for a little while
-      pause: minutes=1
+      pause: seconds=40
 
       tags:
         - ec2
