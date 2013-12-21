@@ -43,7 +43,7 @@
 
 
     - name: Refresh EC2 inventory
-      action: ec2_facts
+      command: /etc/ansible/hosts/ec2.py
       register: ec2factsgathered
 
       tags:
