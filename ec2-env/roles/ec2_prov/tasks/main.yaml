@@ -1,5 +1,5 @@
     - name: Provision MySQL instance
-      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image={{ ec2_image}} wait=true region="{{ ec2_region}}"
       #Only valid on the host where it is registered
       register: ec2_mysql
 
@@ -15,6 +15,12 @@
         - ec2
         - ec2_prov
         - ec2_prov_mysql
+
+    - name: write fact to file
+      command: touch /tmp/ec2_mysql.txt
+
+    - name: write fact to file
+      command: {{ ec2_mysql }} > /tmp/ec2_mysql.txt
 
     - name: Provision Wordpress instance
       local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
@@ -33,6 +39,12 @@
         - ec2
         - ec2_prov
         - ec2_prov_wordpress
+
+    - name: write fact to file
+      command: touch /tmp/ec2_wordpress.txt
+
+    - name: write fact to file
+      command: {{ ec2_wordpress }} > /tmp/ec2_wordpress.txt
 
     - name: Pause for a little while
       pause: minutes=1
