@@ -17,6 +17,14 @@
     - name: Pause for a little while
       pause: minutes=1
 
-    - name: Test template
-      action: template src=ec2.j2 dest=/tmp/test.txt
+    - name: Refresh EC2 inventory
+      action: ec2_facts
+      register: ec2factsgathered
+
+    - name: view the stuff
+      action: debug msg="{{ ec2factsgathered }}"
+
+
+#    - name: Test template
+#      action: template src=ec2.j2 dest=/tmp/test.txt
 
