@@ -19,7 +19,7 @@
     - name: write fact to file
       command: touch /tmp/ec2_mysql.txt
 
-    - name: write fact to file
+    - name: write fact to file2
       command: "{{ ec2_mysql }} > /tmp/ec2_mysql.txt"
 
     - name: Provision Wordpress instance
@@ -43,7 +43,7 @@
     - name: write fact to file
       command: touch /tmp/ec2_wordpress.txt
 
-    - name: write fact to file
+    - name: write fact to file2
       command: "{{ ec2_wordpress }} > /tmp/ec2_wordpress.txt"
 
     - name: Pause for a little while
