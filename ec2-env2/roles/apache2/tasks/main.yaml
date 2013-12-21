@@ -1,0 +1,78 @@
+---
+    - name: Apache2 | Install required packages.
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - php5
+        - apache2
+        - libapache2-modsecurity
+        - php5-mysql
+        - php-apc
+        - php5-xmlrpc
+        - php-soap
+        - php5-gd
+        - php5-memcache
+        - php5-memcached
+        - php5-curl
+        - php5-tidy
+        - unzip
+        - python-mysqldb
+        - memcached
+        - strace
+        - atsar
+        - uptimed
+        - subversion
+        - vim
+        - ack
+        - mosh
+        - mysql-client-core-5.5
+##
+    # PHP Setup.
+    #
+    - name: PHP | Configuration file, php.ini
+      action: template src=etc-php5-apache2-php-ini.j2 dest=/etc/php5/apache2/php.ini
+      tags: common
+
+    - name: APC | Cache configuration file, apc.ini
+      action: template src=etc-php5-conf-d-apc-ini.j2 dest=/etc/php5/conf.d/apc.ini
+      tags: common
+
+    ##
+    # Apache2 setup.
+    #
+    #- name: Apache | Enable some required modules
+    #  action: command a2enmod rewrite vhost_alias expires
+    #  tags: apache2
+    #  creates:
+    #    /etc/apache2/mods-enabled/rewrite.load
+    #    /etc/apache2/mods-enabled/vhost_alias.load
+    #    /etc/apache2/mods-enabled/expires.load
+
+    - name: Apache | Enable some required modules (rewrite)
+      action: command a2enmod rewrite creates=/etc/apache2/mods-enabled/rewrite.load
+      tags: apache2
+      notify: 
+      - restart apache2
+
+    - name: Apache | Enable some required modules (vhost_alias)
+      action: command a2enmod vhost_alias creates=/etc/apache2/mods-enabled/vhost_alias.load
+      tags: apache2
+      notify: 
+      - restart apache2
+
+    - name: Apache | Enable some required modules (expires)
+      action: command a2enmod expires creates=/etc/apache2/mods-enabled/expires.load
+      tags: apache2
+      notify: 
+      - restart apache2
+
+    - name: Apache | Disable the default site
+      action: command a2dissite default removes=/etc/apache2/sites-enabled/default
+      tags: apache2
+      notify: 
+      - restart apache2
+
+    - name: Apache | Disable the default site
+      action: command a2dissite default removes=/etc/apache2/sites-enabled/000-default
+      tags: apache2
+      notify: 
+      - restart apache2

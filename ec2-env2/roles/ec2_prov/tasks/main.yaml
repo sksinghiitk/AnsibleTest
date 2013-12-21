@@ -37,12 +37,12 @@
         - ec2_prov
         - ec2_prov_wordpress
 
-#    - name: Pause for a little while
-#      pause: minutes=1
+    - name: Pause for a little while
+      pause: minutes=1
 
- #     tags:
-  #      - ec2
-   #     - ec2_prov
+      tags:
+        - ec2
+        - ec2_prov
 
 
     - name: Refresh EC2 inventory
