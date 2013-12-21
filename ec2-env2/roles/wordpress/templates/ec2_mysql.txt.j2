@@ -1,4 +1,5 @@
 #I can access a group member from any node, but I need to access all its facts, such as the internal IP address from ec2
 {{ groups['tag_Group_MySQL'][0] }}
 
-{{ hostvars[host][groups['tag_Group_MySQL'][0]]}}
+Trying to access hostvars using the above does not work:
+{{ hostvars[{{ other_fact }}]}}

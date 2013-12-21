@@ -13,3 +13,5 @@
 
     - name: write fact to file
       template: src=ec2_mysql.txt.j2 dest=/tmp/ec2_mysql.txt
+
+    - set_fact: other_fact="{{ groups['tag_Group_MySQL'][0] }}"
