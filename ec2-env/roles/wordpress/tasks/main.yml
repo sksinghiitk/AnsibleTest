@@ -10,7 +10,8 @@
     #  ignore_errors: True
     #  notify: 
     #  - restart apache2
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][address] }}"
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] }}"
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]].address }}"
 
 
     - name: Clone Wordpress from git
