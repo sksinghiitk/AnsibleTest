@@ -11,6 +11,9 @@ define('DB_HOST', '{{ ec2_mysql.instances[0].private_ip }}');
 #define('DB_HOST', '{{ ec2_mysql.instances[0].private_ip }}');
 #{% endfor %}
 
+define('DB_HOST', '{{ hostvars[ groups['tag_Group_MySQL'][0] ][ private_ip ] }}');
+
+
 define('DB_CHARSET', 'utf8');
 
 define('DB_COLLATE', '');
