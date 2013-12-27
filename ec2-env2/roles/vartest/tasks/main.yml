@@ -10,7 +10,7 @@
     #  ignore_errors: True
     #  notify: 
     #  - restart apache2
-    
+
 
     # - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
     # - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_yaml }}"
@@ -34,4 +34,9 @@
 
     - name: var1
       action: template src=var1.txt.j2 dest=/tmp/var1.txt
+      ignore_errors: yes
+
+    - name: var2
+      action: template src=var2.txt.j2 dest=/tmp/var2.txt
+      ignore_errors: yes
 
