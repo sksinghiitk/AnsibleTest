@@ -1,7 +1,0 @@
-    - name: Wordpress MySQL database
-      mysql_db: db=wordpress state=present
-      tags: wp_mysql
-
-    - name: Wordpress MySQL setup
-      mysql_user: name=wordpress password={{ wordpress_mysql_user_passwd }} priv=wordpress.*:ALL state=present host=%
-      tags: wp_mysql

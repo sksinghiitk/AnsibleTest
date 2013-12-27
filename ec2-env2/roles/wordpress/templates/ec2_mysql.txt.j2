@@ -1,5 +1,0 @@
-#I can access a group member from any node, but I need to access all its facts, such as the internal IP address from ec2
-{{ groups['tag_Group_MySQL'][0] }}
-
-I have set "other_fact" using the task for the same role. Doesn't work.
-{{ hostvars[{{ other_fact }}]}}
