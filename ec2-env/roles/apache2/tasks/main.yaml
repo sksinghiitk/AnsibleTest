@@ -1,20 +1,4 @@
 ---
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_yaml }}"
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_json }}"
-
-    - name: debug 1
-      debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][ansible_default_ipv4.adress] }}"
-      ignore_errors: yes
-
-    - name: debug 2
-      debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4.adress'] }}"
-      ignore_errors: yes
-
-    - name: debug 3
-      debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4'] }}"
-      ignore_errors: yes
-
     - name: Apache2 | Install required packages.
       action: apt pkg={{ item }} state=installed
       with_items:
