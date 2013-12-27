@@ -11,10 +11,6 @@
     #  notify: 
     #  - restart apache2
 
-    - name: write fact to file
-      template: src=ec2_mysql.txt.j2 dest=/tmp/ec2_mysql.txt
-
-
     - name: Clone Wordpress from git
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
       register: gitclonewordpressresult
