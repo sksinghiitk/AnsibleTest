@@ -1,1 +1,1 @@
-{{ hostvars[groups['tag_Group_MySQL'][0]][ansible_all_ipv4_addresses][0] }}
+{{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4']['address'] }}
