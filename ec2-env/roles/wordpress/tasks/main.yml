@@ -10,6 +10,8 @@
     #  ignore_errors: True
     #  notify: 
     #  - restart apache2
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] }}"
+
 
     - name: Clone Wordpress from git
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
@@ -50,8 +52,3 @@
       tags: wp_plugins
 
     - meta: flush_handlers
-
-
-
-
-
