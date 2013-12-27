@@ -19,9 +19,9 @@
     #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][ansible_default_ipv4.adress] }}"
     #   ignore_errors: yes
 
-    - name: debug 2
-      debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4.adress'] }}"
-      ignore_errors: yes
+    # - name: debug 2
+    #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4.adress'] }}"
+    #   ignore_errors: yes
 
     - name: debug 3
       debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4'] }}"
