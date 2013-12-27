@@ -6,8 +6,6 @@ mysql_root_password: 'foobarbaz'
 #wordpress_version: 3.7-branch
 wordpress_version: HEAD
 server_hostname: ansiblenode
-
-
 ubuntu_release: 'precise'
 logwatch_email: 'ops@aynassociates.com'
 
