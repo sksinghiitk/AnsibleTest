@@ -1,0 +1,5 @@
+remote_user: 'ubuntu'
+wordpress_mysql_user_passwd: foobarbaz
+ec2_instancesize: t1.micro
+ec2_image: ami-6aad335a
+ec2_region: us-west-2

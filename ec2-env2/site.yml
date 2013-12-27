@@ -1,0 +1,35 @@
+---
+- name: Provision EC2 images
+  hosts:
+    - control
+
+  roles:
+    - ec2_prov
+
+- name: Install common config on all nodes
+  hosts: 
+    - tag_Group_Wordpress
+    - tag_Group_MySQL
+  user: "{{ remote_user }}"
+  sudo: yes
+  serial: 9999
+
+  roles:
+
+- name: Install MySQL
+  hosts: 
+    - tag_Group_MySQL
+  user: "{{ remote_user }}"
+  sudo: yes
+
+  roles:
+
+
+- name: Install Wordpress
+  hosts: 
+    - tag_Group_Wordpress
+  user: "{{ remote_user }}"
+  sudo: yes
+
+  roles:
+    - vartest
