@@ -12,14 +12,14 @@ define('DB_CHARSET', 'utf8');
 
 define('DB_COLLATE', '');
 
-define('AUTH_KEY',         '{{ wordpress_AUTH_KEY }}');
-define('SECURE_AUTH_KEY',  '{{ wordpress_SECURE_AUTH_KEY }}');
-define('LOGGED_IN_KEY',    '{{ wordpress_LOGGED_IN_KEY }}');
-define('NONCE_KEY',        '{{ wordpress_NONCE_KEY }}');
-define('AUTH_SALT',        '{{ wordpress_AUTH_SALT }}');
-define('SECURE_AUTH_SALT', '{{ wordpress_SECURE_AUTH_SALT }}');
-define('LOGGED_IN_SALT',   '{{ wordpress_LOGGED_IN_SALT }}');
-define('NONCE_SALT',       '{{ wordpress_NONCE_SALT }}');
+define('AUTH_KEY',         '{{ wordpress_AUTH_KEY.stdout }}');
+define('SECURE_AUTH_KEY',  '{{ wordpress_SECURE_AUTH_KEY.stdout }}');
+define('LOGGED_IN_KEY',    '{{ wordpress_LOGGED_IN_KEY.stdout }}');
+define('NONCE_KEY',        '{{ wordpress_NONCE_KEY.stdout }}');
+define('AUTH_SALT',        '{{ wordpress_AUTH_SALT.stdout }}');
+define('SECURE_AUTH_SALT', '{{ wordpress_SECURE_AUTH_SALT.stdout }}');
+define('LOGGED_IN_SALT',   '{{ wordpress_LOGGED_IN_SALT.stdout }}');
+define('NONCE_SALT',       '{{ wordpress_NONCE_SALT.stdout }}');
 
 
 $table_prefix  = 'wp_'; 
