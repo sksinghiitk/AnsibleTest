@@ -10,7 +10,9 @@
     #  ignore_errors: True
     #  notify: 
     #  - restart apache2
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] }}"
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_yaml }}"
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_json }}"
     - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['address'] }}"
 
 
