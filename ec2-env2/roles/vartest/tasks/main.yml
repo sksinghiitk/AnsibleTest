@@ -10,10 +10,11 @@
     #  ignore_errors: True
     #  notify: 
     #  - restart apache2
+    
 
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_yaml }}"
-    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_json }}"
+    # - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
+    # - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_yaml }}"
+    # - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]] | to_json }}"
 
     # - name: debug 1
     #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][ansible_default_ipv4.adress] }}"
@@ -23,46 +24,14 @@
     #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4.adress'] }}"
     #   ignore_errors: yes
 
-    - name: debug 3
-      debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4'] }}"
-      ignore_errors: yes
+    # - name: debug 3
+    #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]['ansible_default_ipv4'] }}"
+    #   ignore_errors: yes
 
-    - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
-      register: gitclonewordpressresult
-      ignore_errors: True
-      notify: 
-      - restart apache2
-      tags: wp_clone
+    # - name: debug 4
+    #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][ansible_all_ipv4_addresses] }}"
+    #   ignore_errors: yes
 
-    - name: Empty wordpress target directory if clone failed
-      command: rm -rf /var/www/wordpress
-      when: gitclonewordpressresult|failed
-      tags: wp_clone
+    - name: var1
+      action: template src=var1.txt.j2 dest=/tmp/var1.txt
 
-    - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
-      when: gitclonewordpressresult|failed
-      notify: 
-      - restart apache2
-      tags: wp_clone
-
-    - name: Apache | Configuration file for our site
-      action: template src=etc-apache2-sites-available-wordpress.j2 dest=/etc/apache2/sites-available/wordpress
-      tags: wp_apache_config
-
-    - name: Apache | Enable our new site
-      action: command a2ensite wordpress creates=/etc/apache2/sites-enabled/wordpress
-      tags: wp_apache_config
-
-    - name: copy wordpress config file
-      action: template src=wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
-      notify: 
-      - restart apache2
-      tags: wp_apache_config
-
-    - name: chown wp
-      file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
-      tags: wp_plugins
-
-    - meta: flush_handlers
