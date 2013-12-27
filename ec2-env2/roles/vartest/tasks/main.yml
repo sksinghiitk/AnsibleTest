@@ -31,12 +31,13 @@
     # - name: debug 4
     #   debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]][ansible_all_ipv4_addresses] }}"
     #   ignore_errors: yes
+    - debug: msg="hostvars is {{ hostvars[groups['tag_Group_MySQL'][0]]  }}"
 
     - name: var1
-      action: template src=var1.txt.j2 dest=/tmp/var1.txt
+      template: src=var1.txt.j2 dest=/tmp/var1.txt
       ignore_errors: yes
 
     - name: var2
-      action: template src=var2.txt.j2 dest=/tmp/var2.txt
+      template: src=var2.txt.j2 dest=/tmp/var2.txt
       ignore_errors: yes
 

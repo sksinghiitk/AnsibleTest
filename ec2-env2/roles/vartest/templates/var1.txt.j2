@@ -1,1 +1,3 @@
-{{ hostvars[groups['tag_Group_MySQL'][0]] }}
+{% for k,v in hostvars[groups['tag_Group_MySQL'][0]].iteritems() %}
+Key {{k}} Value: {{v|pprint}}
+{% endfor %}
