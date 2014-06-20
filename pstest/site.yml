@@ -1,5 +1,7 @@
 ---
-- hosts: control
+- hosts: 
+	- control
+	- linux
   remote_user: root
   tasks:
     - name: test connection
