@@ -1,5 +1,7 @@
 ---
-- name: Goof around with PowerShell
-  hosts: control
-
-  roles: common
+- hosts: control
+  remote_user: root
+  tasks:
+    - name: test connection
+      ping:
+      remote_user: yourname
