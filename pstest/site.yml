@@ -1,0 +1,6 @@
+---
+- name: Goof around with PowerShell
+  hosts: control
+
+  roles:
+	- common
