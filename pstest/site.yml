@@ -1,6 +1,7 @@
 ---
 - name: Common Stuff
   hosts: all
-  user: root
+  user: trondcloud\thadministrator
+  password: Password123456
   roles:
   - common
