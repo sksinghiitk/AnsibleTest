@@ -1,0 +1,7 @@
+# it is suggested that these be encrypted with ansible-vault:
+# ansible-vault edit group_vars/windows.yml
+
+ansible_ssh_user: trondcloud\thadministrator
+ansible_ssh_pass: Password123456
+ansible_ssh_port: 5986
+ansible_connection: winrm

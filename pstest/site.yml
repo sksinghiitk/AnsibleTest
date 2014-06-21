@@ -1,7 +1,5 @@
 ---
-- name: Common Stuff
-  hosts: all
-  user: trondcloud\thadministrator
-  password: Password123456
+- name: Windows Common Stuff
+  hosts: Windows
   roles:
   - common
