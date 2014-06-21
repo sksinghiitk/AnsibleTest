@@ -1,5 +1,5 @@
 ---
 - name: Windows Common Stuff
-  hosts: Windows
+  hosts: windows
   roles:
   - common
