@@ -1,2 +1,2 @@
-  - name: ping
-    action: ping localhost
+  - name: webserver
+    action: win_feature name="Web-Server" state=present restart=False
