@@ -2,5 +2,7 @@
     action: win_feature name={{ item }} state=present restart=False
     with_items:
       - "telnet-client"
-      - "webserver"
+      - "web-server"
+    notify:
+      - restart IIS
 
