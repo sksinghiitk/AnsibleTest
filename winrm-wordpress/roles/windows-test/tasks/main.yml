@@ -5,4 +5,4 @@
     action: win_get_url dest="C:\WebPI.msi" url="http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
 
   - name: Install Web PI
-    action: win_msi path="C:\WebPI.msi"   
+    action: win_msi path="C:\WebPI.msi" creates="C:\Program Files\Microsoft\Web Platform Installer\WebPlatformInstaller.exe"   
