@@ -5,5 +5,10 @@
   sudo: yes
 
   roles:
-    - mysql 
+    - mysql
+
+- name: Test Windows
+  hosts: windows-web
+  roles:
+    - windows-test
 
