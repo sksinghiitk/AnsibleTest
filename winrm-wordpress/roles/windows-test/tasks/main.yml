@@ -29,5 +29,5 @@
     register: WpZipFile
 
   - name: Download wordpress
-    action: win_get_url dest "C:\wordpress{{ wordpress_desired_version }}.zip" url="http://wordpress.org/wordpress-{{ wordpress_desired_version }}-IIS.zip"
+    action: win_get_url dest="C:\wordpress{{ wordpress_desired_version }}.zip" url="http://wordpress.org/wordpress-{{ wordpress_desired_version }}-IIS.zip"
     when: WpZipFile.stat.exists == false
