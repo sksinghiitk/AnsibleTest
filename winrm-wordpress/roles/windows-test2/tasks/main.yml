@@ -1,0 +1,2 @@
+  - name: Test Windows
+    action: win_feature name=File-Services includesubfeatures=yes includemanagementtools=yes
