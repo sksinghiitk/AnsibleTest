@@ -1,4 +1,6 @@
-remote_user: 'azureuser'
+remote_user: 'root'
+ansible_ssh_user: azureuser
+
 
 # my.cnf
 mysql_max_allowed_packet: '128M'
