@@ -1,3 +1,3 @@
-$password = $args[0]
-write-host $password
-set-content -Value $password -Path "C:\text.txt"
+cd "$env:programfiles\microsoft\web platform installer"
+Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /products:IIS7 /AcceptEULA"
+Start-Process -filepath WebPICMD.exe -ArgumentList "/Install /products:PHP55 /AcceptEULA"
