@@ -2,7 +2,7 @@
     action: win_ping
 
   - name: Verify Web PI
-    action: stat path="C:\WebPI.msi"
+    action: win_stat path="C:\WebPI.msi"
 
   - name: Download Wep PI
     action: win_get_url dest="C:\WebPI.msi" url="http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
