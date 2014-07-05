@@ -4,6 +4,5 @@
   user: root
 
   roles:
-    - common-linux
     - mysql 
 
