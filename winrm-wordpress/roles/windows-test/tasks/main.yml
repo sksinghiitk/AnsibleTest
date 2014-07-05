@@ -21,4 +21,4 @@
     when: WinPiInstalledFile.stat.exists == false
 
   - name: Configure wordpress
-    action: script ~/AnsibleTest/winrm-wordpress/roles/windows-web/files/InstallWordpress.ps1 {{ wordpress_mysql_user_passwd }}
+    action: script InstallWordpress.ps1 {{ wordpress_mysql_user_passwd }}
