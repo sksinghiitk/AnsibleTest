@@ -1,2 +1,5 @@
-  - name: Test Windows
-    action: win_feature name=File-Services includesubfeatures=yes includemanagementtools=yes
+  - name: Join Domain
+    win_domainjoin:
+        domainname: "mytestdomain.com"
+        domainusername: "MYTESTDOMAIN\administrator"
+        domainpassword: "Hello123"
