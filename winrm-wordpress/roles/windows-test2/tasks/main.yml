@@ -4,3 +4,4 @@
         domainusername: "thadministrator@trondcloud.hindenes.com"
         domainpassword: "Password123456"
         OUPath: "OU=servers,DC=trondcloud,DC=hindenes,DC=com"
+        restart: yes
