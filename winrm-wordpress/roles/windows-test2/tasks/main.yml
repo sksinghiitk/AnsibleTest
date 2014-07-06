@@ -1,5 +1,5 @@
   - name: Join Domain
     win_domainjoin:
-        domainname: "mytestdomain.com"
-        domainusername: "MYTESTDOMAIN\administrator"
-        domainpassword: "Hello123"
+        domainname: "trondcloud.hindenes.com"
+        domainusername: "TRONDCLOUD\thadministrator"
+        domainpassword: "Password123456"
