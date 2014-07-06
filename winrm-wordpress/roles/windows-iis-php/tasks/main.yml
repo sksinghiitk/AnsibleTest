@@ -98,6 +98,6 @@
 
 # Install MySQL connector for .net if not already present
   - name: Install MySQL connector
-    win_msi: path="C:\mysql-connector-net-6.5.4.msi" msiname="MySQL Connector Net 6.5.4" msiversionstring="6.5.4" state=present
+    win_msi: path="C:\phpthingy.zip" msiname="MySQL Connector Net 6.5.4" msiversionstring="6.5.4" state=present
 
 
