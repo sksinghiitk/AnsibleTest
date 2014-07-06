@@ -1,6 +1,6 @@
 ---
 - name: Test Windows
-  hosts: windows-web
+  hosts: windows-test
   roles:
-    - windows-test2
+    - windows-iis-php
 
