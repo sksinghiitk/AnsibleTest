@@ -1,5 +1,6 @@
+---
   - name: Configure windows features
-    action: win_feature name={{ item }} state=present restart=yes
+    action: win_feature name={{ item }} state=present restart=true
 	with_items:
       - "Web-Server"
       - "Web-WebServer"
