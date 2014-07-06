@@ -1,7 +1,7 @@
----
-  - name: Configure windows features
-    action: win_feature name={{ item }} state=present restart=true
-	with_items:
+---  
+  - name: webserver
+    action: win_feature name={{ item }} state=present restart=False
+    with_items:
       - "Web-Server"
       - "Web-WebServer"
       - "Web-Common-Http"
