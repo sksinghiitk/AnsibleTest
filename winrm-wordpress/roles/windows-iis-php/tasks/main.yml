@@ -27,4 +27,7 @@
     action: win_get_url dest="C:\vcredist_x64.exe" url="http://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe"
     when: vcredistfile.stat.exists == false
 
+  - name: Install VC 2012 Redist
+    action: win_msi path="C:\vcredist_x64.exe" msiname="Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030"
+
 
