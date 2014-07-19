@@ -20,7 +20,7 @@
     when: phpfolder.stat.isdir == false and phpfolder.stat.exists == false
 
   - name: Verify VC2012 Redist
-    action: win_stat path="vcredist_x64.exe"
+    action: win_stat path="C:\vcredist_x64.exe"
     register: vcredistfile
 
   - name: Download VC2012 Redist
