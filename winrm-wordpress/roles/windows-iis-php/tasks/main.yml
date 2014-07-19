@@ -16,7 +16,7 @@
     register: phpfolder
 
   - name: Unzip PHP folder
-    action: script infile="C:\php.zip" outfolder="C:\php"
+    action: script extractfile.ps1
     when: phpfolder.stat.isdir == true
 
   - name: Verify VC2012 Redist
