@@ -28,6 +28,6 @@
     when: vcredistfile.stat.exists == false
 
   - name: Install VC 2012 Redist
-    action: win_msi path="C:\vcredist_x64.exe" msiname="Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030"
+    action: script installvc2012.ps1
 
 
