@@ -6,6 +6,7 @@
 
   roles:
     - mysql
+    - mysql_wordpressdb
 
 - name: Test Windows
   hosts: windows-web
