@@ -17,7 +17,7 @@
 
   - name: Unzip PHP folder
     action: script infile="C:\php.zip" outfolder="C:\php"
-    when: phpfolder.stat.exists == false
+    when: phpfolder.stat.isdir == true
 
   - name: Verify VC2012 Redist
     action: win_stat path="vcredist_x64.exe"
