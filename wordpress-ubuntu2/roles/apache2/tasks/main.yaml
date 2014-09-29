@@ -32,9 +32,9 @@
       action: template src=etc-php5-apache2-php-ini.j2 dest=/etc/php5/apache2/php.ini
       tags: common
 
-    - name: APC | Cache configuration file, apc.ini
-      action: template src=etc-php5-conf-d-apc-ini.j2 dest=/etc/php5/conf.d/apc.ini
-      tags: common
+#    - name: APC | Cache configuration file, apc.ini
+#      action: template src=etc-php5-conf-d-apc-ini.j2 dest=/etc/php5/conf.d/apc.ini
+#      tags: common
 
     ##
     # Apache2 setup.
