@@ -1,0 +1,84 @@
+##
+    # Wordpress
+    #
+
+
+    #- name: Clone wordpress
+    #  subversion: repo=http://core.svn.wordpress.org/tags/$wordpress_version dest=/var/www/wordpress
+    #  tags: wordpress
+    #  register: gitclonewordpressresult
+    #  ignore_errors: True
+    #  notify: 
+    #  - restart apache2
+
+    - name: Clone Wordpress from git
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
+      register: gitclonewordpressresult
+      ignore_errors: True
+      notify: 
+      - restart apache2
+      tags: wp_clone
+
+    - name: Empty wordpress target directory if clone failed
+      command: rm -rf /var/www/wordpress
+      when: gitclonewordpressresult|failed
+      tags: wp_clone
+
+    - name: Clone Wordpress from git
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
+      when: gitclonewordpressresult|failed
+      notify: 
+      - restart apache2
+      tags: wp_clone
+
+    - name: Apache | Configuration file for our site
+      action: template src=etc-apache2-sites-available-wordpress.j2 dest=/etc/apache2/sites-available/wordpress
+      tags: wp_apache_config
+
+    - name: Apache | Enable our new site
+      action: command a2ensite wordpress creates=/etc/apache2/sites-enabled/wordpress
+      tags: wp_apache_config
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_AUTH_KEY
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_SECURE_AUTH_KEY
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_LOGGED_IN_KEY
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_NONCE_KEY
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_AUTH_SALT
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_SECURE_AUTH_SALT
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_LOGGED_IN_SALT
+
+    - name: Generate random keys for wordpress config file
+      action: command openssl rand -base64 32
+      register: wordpress_NONCE_SALT
+
+    - name: copy wordpress config file
+      action: template src=wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
+      notify: 
+      - restart apache2
+      tags: wp_apache_config
+
+    - name: chown wp
+      file: path=/var/www/wordpress recurse=yes owner=www-data group=www-data state=directory
+      tags: wp_plugins
+
+    - meta: flush_handlers

@@ -1,0 +1,11 @@
+---
+- name: Install common config on all nodes
+  hosts:
+    - wordpress
+  sudo: yes
+  roles:
+    - common
+    - mysql
+    - mysql_wordpressdb
+    - apache2
+    - wordpress

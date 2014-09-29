@@ -1,0 +1,67 @@
+    - name: Provision MySQL instance
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image={{ ec2_image}} wait=true region="{{ ec2_region}}"
+      #Only valid on the host where it is registered
+      register: ec2_mysql
+
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_mysql
+
+    - name: Add MySQL instance to MySQL group
+      local_action: add_host hostname={{ ec2_mysql.instances[0].public_ip}} groupname=tag_Group_MySQL
+
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_mysql
+
+    - name: write fact to file
+      template: src=ec2_mysql.txt.j2 dest=/tmp/ec2_mysql.txt
+
+    - name: Provision Wordpress instance
+      local_action: ec2 key_name=root@ansible  group=MySG instance_type={{ ec2_instancesize }} image=ami-6aad335a wait=true region="us-west-2"
+      #Only valid on the host where it is registered
+      register: ec2_wordpress
+
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_wordpress
+
+    - name: Add Wordpress instance to Wordpress group
+      local_action: add_host hostname={{ ec2_wordpress.instances[0].public_ip}} groupname=tag_Group_Wordpress
+
+      tags:
+        - ec2
+        - ec2_prov
+        - ec2_prov_wordpress
+
+    - name: Pause for a little while
+      pause: minutes=1
+
+      tags:
+        - ec2
+        - ec2_prov
+
+
+    - name: Refresh EC2 inventory
+      command: /etc/ansible/hosts/ec2.py
+      register: ec2factsgathered
+
+      tags:
+        - ec2
+        - ec2_prov
+
+
+#    - name: view the stuff
+#      template: src=ec2facts.txt.j2 dest=/tmp/ec2facts.txt
+
+#      tags:
+#        - ec2
+#        - ec2_prov
+
+
+#    - name: Test template
+#      action: template src=ec2.j2 dest=/tmp/test.txt
+
