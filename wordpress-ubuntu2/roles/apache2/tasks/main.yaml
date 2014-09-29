@@ -22,7 +22,7 @@
         - uptimed
         - subversion
         - vim
-        - ack
+#        - ack
         - mosh
         - mysql-client-core-5.5
 ##
