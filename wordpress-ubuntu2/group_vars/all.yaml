@@ -15,7 +15,8 @@ aws_secret_access_key: foobarbaz/foobarbaz
 mysql_root_password: 'foobarbaz'
 #wordpress_version: latest
 wordpress_version: HEAD
-server_hostname: ansiblenode
+server_hostname: wordpress
+wordpress_mysql_user_passwd: 'foobarbaz'
 
 
 ubuntu_release: 'precise'
