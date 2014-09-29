@@ -8,14 +8,14 @@
     #  tags: wordpress
     #  register: gitclonewordpressresult
     #  ignore_errors: True
-    #  notify: 
+    #  notify:
     #  - restart apache2
 
     - name: Clone Wordpress from git
-      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
+      git: repo=https://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
       register: gitclonewordpressresult
       ignore_errors: True
-      notify: 
+      notify:
       - restart apache2
       tags: wp_clone
 
@@ -27,7 +27,7 @@
     - name: Clone Wordpress from git
       git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes
       when: gitclonewordpressresult|failed
-      notify: 
+      notify:
       - restart apache2
       tags: wp_clone
 
@@ -73,7 +73,7 @@
 
     - name: copy wordpress config file
       action: template src=wp-config.php.j2 dest=/var/www/wordpress/wp-config.php
-      notify: 
+      notify:
       - restart apache2
       tags: wp_apache_config
 
