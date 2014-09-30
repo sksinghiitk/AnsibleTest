@@ -25,14 +25,14 @@
       tags: wp_clone
 
     - name: Clone Wordpress from git
-      git: repo=https://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes  accept_hostkey=true
+      git: repo=https://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} accept_hostkey=true
       when: gitclonewordpressresult|failed
       notify:
       - restart apache2
       tags: wp_clone
 
     - name: Apache | Configuration file for our site
-      action: template src=etc-apache2-sites-available-wordpress.j2 dest=/etc/apache2/sites-available/wordpress
+      action: template src=etc-apache2-sites-available-wordpress.j2 dest=/etc/apache2/sites-available/wordpress.conf
       tags: wp_apache_config
 
     - name: Apache | Enable our new site
