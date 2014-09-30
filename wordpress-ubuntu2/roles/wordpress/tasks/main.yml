@@ -12,7 +12,7 @@
     #  - restart apache2
 
     - name: Clone Wordpress from git
-      git: repo=https://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} force=yes accept_hostkey=true
+      git: repo=git://github.com/WordPress/WordPress.git dest=/var/www/wordpress version={{ wordpress_version }} accept_hostkey=true
       register: gitclonewordpressresult
       ignore_errors: True
       notify:
