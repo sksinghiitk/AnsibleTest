@@ -72,7 +72,7 @@
       - restart apache2
 
     - name: Apache | Disable the default site
-      action: command a2dissite default removes=/etc/apache2/sites-enabled/000-default.conf
+      action: command a2dissite 000-default removes=/etc/apache2/sites-enabled/000-default.conf
       tags: apache2
       notify:
       - restart apache2
