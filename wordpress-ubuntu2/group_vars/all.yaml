@@ -54,13 +54,3 @@ vsftpd_local_enable: 'YES'
 vsftpd_write_enable: 'YES'
 vsftpd_local_umask: '002'
 
-wordpress_LOGGED_IN_KEY: gubba
-wordpress_AUTH_KEY: smuth
-wordpress_SECURE_AUTH_KEY: muff
-wordpress_NONCE_KEY: muffuf
-wordpress_AUTH_SALT: muffuf
-wordpress_SECURE_AUTH_SALT: muffuf
-wordpress_LOGGED_IN_SALT: muffuf
-wordpress_NONCE_SALT: muffuf
-
-
