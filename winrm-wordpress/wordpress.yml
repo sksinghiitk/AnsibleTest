@@ -8,7 +8,7 @@
     - mysql
     - mysql_wordpressdb
 
-- name: Test Windows
+- name: Windows Web
   hosts: windows-web
   roles:
     - windows-iis-php
