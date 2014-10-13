@@ -1,2 +1,2 @@
     - name: Test Template
-      action: template src=file.txt.j2 dest=C:\test.txt
+      action: win_template src=file.txt.j2 dest=C:\test.txt
