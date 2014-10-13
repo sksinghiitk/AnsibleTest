@@ -1,0 +1,5 @@
+---
+- name: Test a template
+  hosts: Windows
+  roles:
+    - test
